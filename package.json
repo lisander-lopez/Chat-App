@@ -1,0 +1,35 @@
+{
+  "name": "chap-app",
+  "version": "1.0.0",
+  "description": "A basic chat app with login functionality, using the MEAN stack :) ! open to any commits!!!",
+  "private": true,
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Redder/Chat-App.git"
+  },
+  "author": "Lisander Lopez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Redder/Chat-App/issues"
+  },
+  "homepage": "https://github.com/Redder/Chat-App#readme",
+  "dependencies": {
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "connect-flash": "*",
+    "cookie-parser": "*",
+    "express": "*",
+    "express-handlebars": "*",
+    "express-messages": "*",
+    "express-session": "*",
+    "express-validator": "*",
+    "mongojs": "*",
+    "passport": "*",
+    "passport-http": "*",
+    "passport-local": "*"
+  }
+}
