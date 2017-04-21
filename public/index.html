@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="chatApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Chat App</title>
+
+  <!-- Linking our CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Linking our Angular and other Scripts! -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+  <script src="https://code.angularjs.org/1.6.4/angular-route.js"></script>
+  <script src="https://code.angularjs.org/1.6.4/angular-animate.js"></script>
+</head>
+<body>
+  <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation"><a href="/">Dashboard</a></li>
+            <li role="presentation"><a href="#login">Login</a></li>
+            <li role="presentation"><a href="#register">Register</a></li>
+            <li role="presentation" ng-if="mainCtrl.loggedIn()"><a href="/users/logout">Log Out</a></li>
+          </ul>
+        </nav>
+        <h3>{{ indexCtrl.name }}</h3>
+        <h3 class="text-muted">Chat App</h3>
+      </div>
+
+
+      <div class="controllers">
+        <div ng-view>
+
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>&copy; 2017 Chat App, Inc.</p>
+      </footer>
+
+    </div> <!-- /container -->
+    <script src="js/scripts.js"></script>
+    <!-- Angular Controllers -->
+
+    <script src="controllers/dashboard.js"></script>
+    <script src="controllers/main.js"></script>
+    <script src="controllers/login.js"></script>
+    <script src="controllers/register.js"></script>
+
+</body>
+</html>

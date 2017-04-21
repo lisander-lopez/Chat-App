@@ -1,0 +1,43 @@
+<div class="container">
+  <h3 class="page-header">Account Register</h3>
+
+  <form ng-submit="registerCtrl.registerUser(userRegistrationForm.$valid)" name="userRegistrationForm">
+    {{ userRegistrationForm.$ }}
+    {{ registerCtrl.username }}
+    <div class="form-group">
+      <label for="">Username</label>
+      <input type="text" class="form-control" ng-class="{ 'has-error' : registerCtrl.userRegistrationForm.username.$invalid && !registerCtrl.userRegistrationForm.username.$pristine }" name="username" placeholder="Username" ng-model="registerCtrl.username" ng-minlength="8" ng-maxlength="64" usernameAvailable required >
+        <p ng-show="userRegistrationForm.username.$invalid && !userRegistrationForm.username.$pristine" class="help-block">Username is required.</p>
+        <p ng-show="userRegistrationForm.username.$error.minlength" class="help-block">Username is too short.</p>
+        <p ng-show="userRegistrationForm.username.$error.maxlength" class="help-block">Username is too long.</p>
+        <p ng-show="userRegistrationForm.username.$pending">Checking Username...</p>
+        <p ng-show="userRegistrationForm.username.$error.usernameAvailable" class="help-block">Username is taken</p>
+    </div>
+
+    <div class="form-group">
+      <label for="">Password</label>
+      <input type="password" class="form-control" name="password" placeholder="Password" ng-model="registerCtrl.password" ng-minlength="8" ng-maxlength="64" required>
+      <p ng-show="registerCtrl.userRegistrationForm.password.$error.minlength" class="help-block">Username is too short.</p>
+      <p ng-show="registerCtrl.userRegistrationForm.password.$error.maxlength" class="help-block">Username is too long.</p>
+    </div>
+
+    <div class="form-group">
+      <label for="">Confirm Password</label>
+      <input type="password" class="form-control" name="password2" ng-model="registerCtrl.password" placeholder="Password Confirmation" required>
+    </div>
+
+    <div class="form-group">
+      <label for="">Email</label>
+      <input type="email" class="form-control" name="email" ng-model="registerCtrl.email" placeholder="Email" required>
+      <p ng-show="registerCtrl.userRegistrationForm.email.$invalid && !registerCtrl.userRegistrationForm.email.$pristine" class="help-block">Enter a valid email.</p>
+
+    </div>
+    <div class="form-group">
+      <label for="">Confirm Email</label>
+      <input type="email" class="form-control" name="email2" ng-model="registerCtrl.email" placeholder="Email Confirmation" required>
+    </div>
+
+    <button class="btn btn-default" type="submit" ng-disabled="userRegistrationForm.$invalid">Submit</button>
+  </form>
+
+</div>
