@@ -1,1 +1,35 @@
-register
+<h3 class="page-header">Account Register</h3>
+
+{{#if validateErrors}}
+  {{#each validateErrors}}
+    <div class="alert alert-danger">
+      {{msg}}
+      <a href="#close" class="icon-remove"></a>
+    </div>
+  {{/each}}
+{{/if}}
+
+<form action="/users/register" method="post">
+  <div class="form-group">
+    <label for="">Username</label>
+    <input type="text" class="form-control" placeholder="Username">
+  </div>
+  <div class="form-group">
+    <label for="">Password</label>
+    <input type="text" class="form-control" placeholder="Password">
+  </div>
+  <div class="form-group">
+    <label for="">Confirm Password</label>
+    <input type="text" class="form-control" placeholder="Password Confirmation">
+  </div>
+  <div class="form-group">
+    <label for="">Email</label>
+    <input type="text" class="form-control" placeholder="Email">
+  </div>
+  <div class="form-group">
+    <label for="">Confirm Email</label>
+    <input type="text" class="form-control" placeholder="Email Confirmation">
+  </div>
+
+  <button class="btn btn-default" type="submit">Submit</button>
+</form>

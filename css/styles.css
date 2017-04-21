@@ -1,0 +1,20 @@
+.footer {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.header {
+  margin-bottom: 30px;
+}
+
+.jumbotron {
+  border-bottom: 0;
+}
+
+.page-header {
+  margin-top: 0;
+}
+
+footer {
+  margin-top: 40px;
+}
