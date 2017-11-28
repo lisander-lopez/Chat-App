@@ -27,9 +27,11 @@
     "express-messages": "*",
     "express-session": "*",
     "express-validator": "*",
+    "http": "0.0.0",
     "mongojs": "*",
     "passport": "*",
     "passport-http": "*",
-    "passport-local": "*"
+    "passport-local": "*",
+    "socket.io": "^2.0.1"
   }
 }

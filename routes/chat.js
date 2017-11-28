@@ -1,9 +1,8 @@
-var express = require('express');
-var router = express.Router();
+module.exports = function(chat, io){
+  chat.get('/', function(req, res) {
+    res.send({message: "Hello"});
+    
+  });
 
-//Get chatApp
-router.get('/chat', function(req, res) {
-  res.send({message: "Hello"});
-});
 
-module.exports = router;
+};

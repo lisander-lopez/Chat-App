@@ -2,4 +2,11 @@
   {{ dashboardCtrl.name }}
 
   <a href="#main">Main</a>
+  <div ng-controller="userCreationCtrl as user">
+    <input type="text" placeholder="Username" ng-model="user.username">
+    <button type="button" ng-click="user.createUser(user.username)">Submit</button>
+  </div>
+  <div ng-controller="chatCtrl as chat">
+    {{ chat.username }}
+  </div>
 </div>

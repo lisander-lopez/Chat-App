@@ -1,4 +1,6 @@
 var express = require('express');
+var app = express();
+var http = require('http').Server(app);
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -8,17 +10,14 @@ var LocalStrategy = require('passport-local').Strategy;
 var mongojs = require('mongojs');
 var db = mongojs('127.0.0.1:27017/chatapp', ['chatapp']);
 
-var chatJS = require('./routes/chat');
-
 //init app
-
-var app = express();
+var io = require('socket.io')(http);
 
 //Middleware
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/chat', chatJS);
+
 
 //Express session
 app.use(session({
@@ -31,15 +30,42 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+//var chat = require('./routes/chat.js')(chat, io);
+//app.use('/chat', chat);
+
+io.on('connection', function(socket){
+  console.log('We have a connection');
+  socket.on('test', function(data){
+    console.log(data);
+  });
+});
+
 app.get('/', function(req, res) {
 	res.render('public/index.html');
 });
 
-app.post('/api/username-avilable', function(req, res) {
+app.post('/api/username-available', function(req, res) {
   console.log(req.body.username);
-  return res.status(404).send({
-   message: 'Username Exists'
-});
+
+  db.chatapp.find({ username: req.body.username}, function(err, data) {
+  	console.log(data[0]);
+  	if (err) {
+      console.log("error"+err); // If there is an error, log it
+    }
+    //Try to parse username from DB, if error (no username) catch ...
+    try {
+      var username = data[0].username;
+
+      console.log('Username Exists');
+      return res.send({ exists: 1 }); // And send it back
+    } catch (e) {
+      console.log('Username Available');
+      return res.send({ exists: 0 }); // Send Username Available
+    } finally {
+
+    }
+	});
+
 });
 
 app.post('/register', function(req, res) {

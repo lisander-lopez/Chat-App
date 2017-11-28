@@ -1,6 +1,6 @@
 .has-error {
-  border-color: #a00311;
-  outline: 0;
+  border-color: #a00311 !important;
+  outline: 0 !important;
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(216, 47, 47, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(216, 47, 47, 0.6) !important;
 }

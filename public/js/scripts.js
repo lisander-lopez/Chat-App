@@ -68,3 +68,28 @@ function($routeProvider, $locationProvider) {
       redirectTo: '/main'
     });
 }]);
+
+var compareTo = function() {
+
+};
+
+app.directive("compareTo", function(){
+  return {
+      require: "ngModel",
+      scope: {
+          itemToCompare: "=compareTo"
+      },
+      link: function(scope, element, attributes, ngModel) {
+
+          ngModel.$validators.compareTo = function(modelValue) {
+              console.log("modelValue: " + modelValue);
+              console.log("itemToCompare: " + scope.itemToCompare);
+              return modelValue == scope.itemToCompare;
+          };
+
+          scope.$watch("itemToCompare", function() {
+              ngModel.$validate();
+          });
+      }
+  };
+});
